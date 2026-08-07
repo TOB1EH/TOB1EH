@@ -14,9 +14,6 @@
 
 ```bash
 tobias@córdoba:~$ whoami
-```
-
-```
 > Tobias Funes
 > Ingeniería Informática @ IUA — 5to año
 > Construyo cosas que corren solas: APIs, dashboards, firmware.
