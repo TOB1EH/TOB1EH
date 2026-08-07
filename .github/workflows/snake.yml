@@ -1,0 +1,28 @@
+name: Generate snake animation
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Platane/snk@v3
+        with:
+          github_user_name: TOB1EH
+          outputs: |
+            github-contribution-grid-snake-dark.svg?palette=github-dark
+      - name: Commit updated snake
+        run: |
+          git config user.name "snk bot"
+          git config user.email "snk@users.noreply.github.com"
+          git add github-contribution-grid-snake-dark.svg
+          git commit -m "update contribution snake" --allow-empty
+          git push
